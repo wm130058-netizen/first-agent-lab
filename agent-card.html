@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My First Agent Card</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#1a2233;--muted:#667085;--accent:#5b5bd6;--accent2:#8b5cf6;--line:#e5e7eb}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,"PingFang SC","Microsoft YaHei",Arial,sans-serif;background:radial-gradient(circle at 10% 10%,rgba(91,91,214,.12),transparent 28%),radial-gradient(circle at 90% 15%,rgba(139,92,246,.10),transparent 30%),var(--bg);color:var(--ink)}
+.wrap{max-width:1080px;margin:0 auto;padding:48px 22px 70px}
+.hero{padding:54px 0 32px}.kicker{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:700}
+h1{font-size:clamp(46px,9vw,108px);line-height:.92;margin:12px 0 18px;letter-spacing:-.055em}
+.sub{max-width:720px;color:var(--muted);font-size:18px;line-height:1.7}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-top:28px}
+.card{background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:0 14px 40px rgba(20,30,60,.06)}
+.span-6{grid-column:span 6}.span-12{grid-column:span 12}
+.label{color:var(--muted);font-size:13px;margin-bottom:10px}.value{font-size:22px;font-weight:700;line-height:1.35}
+.skills{display:flex;gap:10px;flex-wrap:wrap}.skill{padding:9px 13px;border-radius:999px;background:rgba(91,91,214,.09);color:var(--accent);font-weight:700;font-size:14px}
+.route{display:flex;flex-wrap:wrap;align-items:center;gap:9px;font-weight:650;line-height:1.6}
+.quote{font-size:clamp(24px,3vw,38px);line-height:1.35;letter-spacing:-.02em}.rule{border-left:4px solid var(--accent2)}
+.badge{display:inline-block;margin-top:12px;padding:7px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:12px}
+.footer{margin-top:34px;padding-top:24px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:760px){.span-6,.span-12{grid-column:span 12}.wrap{padding:28px 16px 46px}.hero{padding-top:28px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+<div class="kicker">My First Agent</div>
+<h1>{{AGENT_NAME}}</h1>
+<div class="sub">{{ONE_LINE_MISSION}}</div>
+<div class="badge">Built in First Agent Lab · V1.1</div>
+</section>
+<section class="grid">
+<div class="card span-6"><div class="label">它替我干什么</div><div class="value">{{TASK}}</div></div>
+<div class="card span-6"><div class="label">我给它什么</div><div class="value">{{INPUT}}</div></div>
+<div class="card span-12"><div class="label">它怎么工作</div><div class="route">{{WORKFLOW_HTML}}</div></div>
+<div class="card span-6"><div class="label">我给它装的 3 个技能</div><div class="skills"><span class="skill">{{SKILL_1}}</span><span class="skill">{{SKILL_2}}</span><span class="skill">{{SKILL_3}}</span></div></div>
+<div class="card span-6"><div class="label">为什么最需要其中一个</div><div class="value">{{SKILL_REASON}}</div></div>
+<div class="card span-6"><div class="label">第一次实战</div><div class="value">{{FIRST_TEST}}</div></div>
+<div class="card span-6"><div class="label">它最笨的地方</div><div class="value">{{FAILURE}}</div></div>
+<div class="card span-12 rule"><div class="label">我给它加的新规则</div><div class="value">{{NEW_RULE}}</div></div>
+<div class="card span-12"><div class="label">我现在理解的 Agent</div><div class="quote">“{{STUDENT_DEFINITION}}”</div></div>
+</section>
+<div class="footer"><span>{{STUDENT_NAME}}</span><span>《计算与人工智能概论》· First Agent Lab</span></div>
+</div>
+</body>
+</html>
